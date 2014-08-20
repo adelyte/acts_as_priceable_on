@@ -1,5 +1,7 @@
-require "acts_as_priceable_on/version"
-require "acts_as_priceable_on/price"
+require 'active_record'
 
-#class ActsAsPriceableOn::Price
-#end
+require 'acts_as_priceable_on/version'
+require 'acts_as_priceable_on/price'
+
+module ActsAsPriceableOn
+end
