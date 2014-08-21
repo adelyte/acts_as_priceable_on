@@ -1,7 +1,9 @@
 module ActsAsPriceableOn
 	class Price < ::ActiveRecord::Base
-		def get_price
-			0
-		end
-	end
-end
+    # Associations
+    # TODO: add a polymorphic association
+
+    # Attributes
+    # TODO: read money-rails, add price column
+	end # Price
+end # ActsAsPriceableOn
