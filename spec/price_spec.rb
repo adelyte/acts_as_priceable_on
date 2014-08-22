@@ -1,19 +1,6 @@
 require 'spec_helper'
 
+# Specs
 describe ActsAsPriceableOn::Price do
-end # ActsAsPriceableOn::Price
-
-class Product < ::ActiveRecord::Base
-	acts_as_priceable
-	# acts_as_priceable_on 
-end
-
-class Service < ::ActiveRecord::Base
-	acts_as_priceable
-end
-
-
-describe ActsAsPriceableOn::Price do
-	tv = Product.new
-	tv.prices.create
+  it { is_expected.to respond_to(:amount) }
 end # ActsAsPriceableOn::Price
