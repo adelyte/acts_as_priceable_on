@@ -8,7 +8,8 @@ module ActsAsPriceableOn
 
       module ClassMethods
         def acts_as_priceable
-          acts_as_priceable_on :prices
+          has_many :prices, as: :priceable
+          #acts_as_priceable_on :prices
         end # acts_as_priceable
 
         def acts_as_priceable_on(*types, options)
