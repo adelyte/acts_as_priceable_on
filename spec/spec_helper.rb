@@ -6,6 +6,8 @@ require 'sqlite3'
 
 puts "ActiveRecord version #{ActiveSupport::VERSION::STRING}"
 
+MoneyRails::Hooks.init
+
 # Library
 require 'acts_as_priceable_on'
 require 'acts_as_priceable_on/active_record/priceable'
@@ -15,7 +17,7 @@ ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: ":memory:"
 
 ActiveRecord::Schema.define(version: 1) do
   create_table :prices do |t|
-    t.decimal :amount
+    t.money :amount
   end
 
   create_table :products do |t|

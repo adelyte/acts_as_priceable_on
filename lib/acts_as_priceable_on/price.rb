@@ -6,5 +6,6 @@ module ActsAsPriceableOn
 
     # Attributes
     # TODO: read money-rails, add price column
+    monetize :amount_cents
 	end # Price
 end # ActsAsPriceableOn
