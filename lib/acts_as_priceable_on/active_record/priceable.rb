@@ -15,14 +15,13 @@ module ActsAsPriceableOn
           types << options unless options.is_a? Hash
 
           types.each do |type|
-            klass = type.titleize.constantize
+            name = type.to_s.singularize.titleize
 
-            ActsAsPriceableOn.module_eval do
-              class klass < Price
-              end
+            unless ActsAsPriceableOn.const_defined?(name)
+              ActsAsPriceableOn.const_set name, Class.new(Price)
             end
 
-            has_many type, as: :priceable, class_name: "ActsAsPriceableOn::#{klass}"
+            has_many type, as: :priceable, class_name: "ActsAsPriceableOn::#{name}"
           end
         end # acts_as_priceable_on
 
