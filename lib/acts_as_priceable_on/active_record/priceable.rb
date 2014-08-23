@@ -13,9 +13,16 @@ module ActsAsPriceableOn
 
         def acts_as_priceable_on(*types, options)
           types << options unless options.is_a? Hash
-          
+
           types.each do |type|
-            has_many type, as: :priceable
+            klass = type.titleize.constantize
+
+            ActsAsPriceableOn.module_eval do
+              class klass < Price
+              end
+            end
+
+            has_many type, as: :priceable, class_name: "ActsAsPriceableOn::#{klass}"
           end
         end # acts_as_priceable_on
 

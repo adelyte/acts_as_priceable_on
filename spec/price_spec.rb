@@ -10,4 +10,9 @@ describe ActsAsPriceableOn::Price do
   it 'converts money to currency' do
     expect(price.amount).to respond_to(:currency)
   end
+
+  it 'creates a price' do
+    price = ActsAsPriceableOn::Price.create(amount: 10)
+    expect(price.amount).to eq(10)
+  end
 end # ActsAsPriceableOn::Price
