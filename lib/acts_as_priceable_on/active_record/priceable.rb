@@ -15,7 +15,7 @@ module ActsAsPriceableOn
           types << options unless options.is_a? Hash
           
           types.each do |type|
-            has_many type, as: :priceable
+            has_many type, as: :priceable, class_name: 'ActsAsPriceableOn::Price'
           end
         end # acts_as_priceable_on
 
