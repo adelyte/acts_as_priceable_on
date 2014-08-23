@@ -15,8 +15,9 @@ module ActsAsPriceableOn
           types << options unless options.is_a? Hash
 
           types.each do |type|
-            name = type.to_s.singularize.titleize
+            name = type.to_s.singularize.titleize # :charges => 'Charge'
 
+            #if constant doesn't already exist, create it as subclass of Price
             unless ActsAsPriceableOn.const_defined?(name)
               ActsAsPriceableOn.const_set name, Class.new(Price)
             end
